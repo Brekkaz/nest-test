@@ -1,6 +1,7 @@
 import { Controller, Get, Inject, Logger } from '@nestjs/common';
-import { ClientProxy, MessagePattern, Payload } from '@nestjs/microservices';
+import { ClientProxy, GrpcMethod, MessagePattern, Payload } from '@nestjs/microservices';
 import { AppService } from './app.service';
+import { Metadata, ServerUnaryCall } from 'grpc';
 import { ProtobufService } from './protobuf/protobuf.service';
 import { Topic } from './share/enum/topic.enum';
 
@@ -26,5 +27,19 @@ export class AppController {
   public test(@Payload() payload: any) {
     const msg = this.protoService.decompressProto('UserSockets', payload);
     Logger.log(msg, AppController.name);
+  }
+
+  @GrpcMethod('HeroesService', 'FindOne')
+  findOne(data:any, metadata: Metadata, call: ServerUnaryCall<any>):any {
+    const items = [
+      { id: 1, name: 'John' },
+      { id: 2, name: 'Doe' },
+    ];
+    return items.find(({ id }) => id === data.id);
+  }
+
+  @Get('/test1')
+  public test1() {
+    return this.appService.getHero();
   }
 }

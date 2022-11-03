@@ -21,10 +21,13 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.7.3",
+    "@grpc/proto-loader": "^0.7.3",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/microservices": "^9.1.6",
     "@nestjs/platform-express": "^9.0.0",
+    "grpc": "^1.24.11",
     "kafkajs": "^2.2.2",
     "protobufjs": "^7.1.2",
     "reflect-metadata": "^0.1.13",
