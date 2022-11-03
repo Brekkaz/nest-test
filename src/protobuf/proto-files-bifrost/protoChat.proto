@@ -1,0 +1,67 @@
+package protoChat;
+syntax = "proto3";
+
+message UserSocketConnected {
+  string originEvent = 1;
+  string userId = 2;
+  string userSocketId = 3;
+  string getwayUuid = 4;
+}
+
+message UserSocketDisconnected {
+  string originEvent = 1;
+  string userId = 2;
+  string userSocketId = 3;
+  string getwayUuid = 4;
+}
+
+message UserSockets {
+  string uuid = 1;
+  repeated string sockets = 2;
+}
+
+message UpdateMessageEvent {
+  string originEvent = 1;
+  string userId = 2;
+  string originGateway = 3;
+  string originSocket = 4;
+  string messageId = 5;
+  string updateType = 6;
+  string updateDate = 7;
+  string sendingMessageUserId = 8;
+  string receivingMessageUserId = 9;
+  repeated UserSockets sendingMessageSockets = 10;
+  repeated UserSockets receivingMessageSockets = 11;
+}
+
+message NewMessageEvent {
+  string originEvent= 1;
+  string userId= 2;
+  string originGateway= 3;
+  string originSocket= 4;
+  string messageId= 5;
+  string forwardedMessageId= 6;
+  string replyMessageId= 7;
+  string replyStoryUrl= 8;
+  string messageType= 9;
+  string messageMediaUrl= 10;
+  string messageText= 11;
+  string sendingMessageUserId= 12;
+  string receivingMessageUserId= 13;
+  string sendingDate= 14;
+  repeated UserSockets sendingMessageSockets = 15;
+  repeated UserSockets receivingMessageSockets = 16;
+}
+
+message WritingMessageEvent {
+  string originEvent= 1;
+  string userId= 2;
+  string sendingMessageUserId= 3;
+  string receivingMessageUserId= 4;
+  repeated UserSockets receivingMessageSockets = 5;
+}
+
+message ActivityData {
+  string originEvent = 1;
+  string userId = 2;
+}
