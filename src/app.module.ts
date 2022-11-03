@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { MongooseModule } from '@nestjs/mongoose';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProtobufModule } from './protobuf/protobuf.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -27,7 +29,9 @@ import { ProtobufModule } from './protobuf/protobuf.module';
         },
       },
     ]),
-    ProtobufModule
+    ProtobufModule,
+    MongooseModule.forRoot('mongodb://localhost:27017/test'),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
