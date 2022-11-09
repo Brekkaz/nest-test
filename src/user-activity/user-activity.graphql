@@ -1,0 +1,8 @@
+type UserActivity {
+  id: ID!
+  datetime: String!
+}
+
+type Query {
+  getUserActivity(id: ID!): UserActivity
+}

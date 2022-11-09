@@ -23,18 +23,23 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.7.3",
     "@grpc/proto-loader": "^0.7.3",
+    "@nestjs/apollo": "^10.1.4",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/graphql": "^10.1.5",
     "@nestjs/microservices": "^9.1.6",
     "@nestjs/mongoose": "^9.2.1",
     "@nestjs/platform-express": "^9.0.0",
+    "apollo-server-express": "^3.11.1",
+    "graphql": "^16.6.0",
     "grpc": "^1.24.11",
     "kafkajs": "^2.2.2",
     "mongoose": "^6.7.1",
     "protobufjs": "^7.1.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "ts-morph": "^16.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
