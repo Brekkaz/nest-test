@@ -5,25 +5,25 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-    constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService) {}
 
-    @Post()
-    async create(@Body() createCatDto: CreateUserDto) {
-        await this.usersService.create(createCatDto);
-    }
+  @Post()
+  async create(@Body() createCatDto: CreateUserDto) {
+    await this.usersService.create(createCatDto);
+  }
 
-    @Get()
-    async findAll(): Promise<User[]> {
-        return this.usersService.findAll();
-    }
+  @Get()
+  async findAll(): Promise<User[]> {
+    return this.usersService.findAll();
+  }
 
-    @Get(':id')
-    async findOne(@Param('id') id: string): Promise<User> {
-        return this.usersService.findOne(id);
-    }
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<User> {
+    return this.usersService.findOne(id);
+  }
 
-    @Delete(':id')
-    async delete(@Param('id') id: string) {
-        return this.usersService.delete(id);
-    }
+  @Delete(':id')
+  async delete(@Param('id') id: string) {
+    return this.usersService.delete(id);
+  }
 }

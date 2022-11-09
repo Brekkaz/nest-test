@@ -10,17 +10,16 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       subscribe: {
-        fromBeginning: true
+        fromBeginning: true,
       },
       consumer: {
-        groupId: "MS-MICRO",
-
+        groupId: 'MS-MICRO',
       },
       client: {
         clientId: 'MS-MICRO',
-        brokers: ['localhost:9092']
+        brokers: ['localhost:9092'],
       },
-    }
+    },
   } as MicroserviceOptions);
 
   app.connectMicroservice({

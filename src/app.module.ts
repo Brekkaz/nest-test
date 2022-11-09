@@ -44,7 +44,7 @@ import { UsersModule } from './users/users.module';
       },
       playground: true,
     }),
-    UserActivityModule
+    UserActivityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
